@@ -57,9 +57,9 @@ class _HomePageState extends State<HomePage> {
 
       body: FutureBuilder(
         future: getItems(),
-        builder: (BuildContext context, AsyncSnapshot snap) {
-          if (snap.hasData) {
-            List<Map> data = snap.data;
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            List<Map> data = snapshot.data;
 
             return ListView.builder(
               itemCount: data.length,
@@ -75,9 +75,9 @@ class _HomePageState extends State<HomePage> {
       // body: Center(
       //   child: FutureBuilder(
       //     future: getNumber(),
-      //     builder: (BuildContext context, AsyncSnapshot snap) {
-      //       if (snap.hasData) {
-      //         int n = snap.data;
+      //     builder: (BuildContext context, AsyncSnapshot snapshot) {
+      //       if (snapshot.hasData) {
+      //         int n = snapshot.data;
       //         return Text(n.toString());
       //       }
       //       return const SizedBox(
