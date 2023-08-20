@@ -15,4 +15,16 @@ class ServiceData {
       };
     });
   }
+
+  Future<List<Map>> getTasks() async {
+    return [
+      {
+        "id": 1,
+        "title": "Ir de compras al super",
+        "description": "No te olvides de llevar la lista",
+        "image": "https://www...",
+        "status": false,
+      },
+    ];
+  }
 }
