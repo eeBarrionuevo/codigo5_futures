@@ -129,18 +129,50 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
                   Row(
                     children: [
                       Expanded(
-                        child: OutlinedButton(
-                          onPressed: () {},
-                          child: Text("Chat"),
+                        child: SizedBox(
+                          height: 42.0,
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              side: BorderSide(
+                                color: Colors.white.withOpacity(0.3),
+                                width: 1,
+                              ),
+                            ),
+                            child: Text(
+                              "Chat",
+                              style: TextStyle(
+                                color: Colors.white54,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
+                      const SizedBox(
+                        width: 12.0,
+                      ),
                       Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Follow"),
+                        child: SizedBox(
+                          height: 42.0,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              backgroundColor: const Color(0xff06d6a0),
+                            ),
+                            child: Text("Follow"),
+                          ),
                         ),
                       ),
                     ],
