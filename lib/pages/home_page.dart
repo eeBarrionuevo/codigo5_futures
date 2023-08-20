@@ -30,7 +30,18 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Futures"),
       ),
       body: Center(
-        child: Text("Hola"),
+        child: FutureBuilder(
+          future: getNumber(),
+          builder: (BuildContext context, AsyncSnapshot snap) {
+            print(snap);
+            print(snap.connectionState);
+            print(snap.hasData);
+            print(snap.hasError);
+            print(snap.data);
+            int n = snap.data;
+            return Text(n.toString());
+          },
+        ),
       ),
     );
   }
