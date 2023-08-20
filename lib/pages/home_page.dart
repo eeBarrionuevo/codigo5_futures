@@ -18,6 +18,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future<List<String>> getProducts() async {
+    return Future.delayed(const Duration(seconds: 5), () {
+      return ["Fresa", "Mandarina", "Papaya", "Platano"];
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -29,20 +35,42 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Futures"),
       ),
-      body: Center(
-        child: FutureBuilder(
-          future: getNumber(),
-          builder: (BuildContext context, AsyncSnapshot snap) {
-            print(snap);
-            print(snap.connectionState);
-            print(snap.hasData);
-            print(snap.hasError);
-            print(snap.data);
-            int n = snap.data;
-            return Text(n.toString());
-          },
-        ),
+
+      body: FutureBuilder(
+        future: getProducts(),
+        builder: (BuildContext context, AsyncSnapshot snap) {
+          if (snap.hasData) {
+            List<String> data = snap.data;
+            return ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Text(data[index]);
+              },
+            );
+          }
+          return CircularProgressIndicator();
+        },
       ),
+
+      // body: Center(
+      //   child: FutureBuilder(
+      //     future: getNumber(),
+      //     builder: (BuildContext context, AsyncSnapshot snap) {
+      //       if (snap.hasData) {
+      //         int n = snap.data;
+      //         return Text(n.toString());
+      //       }
+      //       return const SizedBox(
+      //         height: 20,
+      //         width: 20,
+      //         child: CircularProgressIndicator(
+      //           color: Colors.pink,
+      //           strokeWidth: 2.0,
+      //         ),
+      //       );
+      //     },
+      //   ),
+      // ),
     );
   }
 }
