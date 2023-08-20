@@ -33,6 +33,8 @@ class ProfilePage extends StatelessWidget {
                             Container(
                               color: Colors.red,
                               child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
                                     children: [
@@ -60,7 +62,22 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          child: Text("Chat"),
+                        ),
+                      ),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text("Follow"),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
