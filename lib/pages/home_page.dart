@@ -24,6 +24,25 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future<List<Map>> getItems() async {
+    return Future.delayed(const Duration(seconds: 5), () {
+      return [
+        {
+          "id": 1,
+          "name": "Zapatos",
+        },
+        {
+          "id": 2,
+          "name": "Camisas",
+        },
+        {
+          "id": 3,
+          "name": "Pantalones",
+        },
+      ];
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -37,19 +56,19 @@ class _HomePageState extends State<HomePage> {
       ),
 
       body: FutureBuilder(
-        future: getProducts(),
+        future: getItems(),
         builder: (BuildContext context, AsyncSnapshot snap) {
           if (snap.hasData) {
-            List<String> data = snap.data;
+            List<Map> data = snap.data;
 
             return ListView.builder(
               itemCount: data.length,
               itemBuilder: (BuildContext context, int index) {
-                return Text(data[index]);
+                return Text(data[index]["name"]);
               },
             );
           }
-          return CircularProgressIndicator();
+          return Text("Cargando...");
         },
       ),
 
