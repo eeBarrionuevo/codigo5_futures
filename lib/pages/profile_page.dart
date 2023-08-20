@@ -51,28 +51,74 @@ class ProfilePage extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
+                            const SizedBox(
+                              height: 6.0,
+                            ),
                             Container(
-                              color: Colors.red,
+                              padding: const EdgeInsets.all(8.0),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.12),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
                                     children: [
-                                      Text("Articles"),
-                                      Text("34"),
+                                      Text(
+                                        "Articles",
+                                        style: TextStyle(
+                                          fontSize: 13.0,
+                                          color: Colors.white54,
+                                        ),
+                                      ),
+                                      Text(
+                                        "34",
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                   Column(
                                     children: [
-                                      Text("Followers"),
-                                      Text("980"),
+                                      Text(
+                                        "Following",
+                                        style: TextStyle(
+                                          fontSize: 13.0,
+                                          color: Colors.white54,
+                                        ),
+                                      ),
+                                      Text(
+                                        "234",
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                   Column(
                                     children: [
-                                      Text("Rating"),
-                                      Text("8.9"),
+                                      Text(
+                                        "Rating",
+                                        style: TextStyle(
+                                          fontSize: 13.0,
+                                          color: Colors.white54,
+                                        ),
+                                      ),
+                                      Text(
+                                        "5.3",
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ],
