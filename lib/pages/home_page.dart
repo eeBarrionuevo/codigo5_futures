@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
         builder: (BuildContext context, AsyncSnapshot snap) {
           if (snap.hasData) {
             List<String> data = snap.data;
+
             return ListView.builder(
               itemCount: data.length,
               itemBuilder: (BuildContext context, int index) {
