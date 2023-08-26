@@ -30,6 +30,20 @@ class ServiceData {
         "image": "https://www...",
         "status": false,
       },
+      {
+        "id": 2,
+        "title": "Ir de compras al super",
+        "description": "No te olvides de llevar la lista",
+        "image": "https://www...",
+        "status": false,
+      },
+      {
+        "id": 3,
+        "title": "Ir de compras al super",
+        "description": "No te olvides de llevar la lista",
+        "image": "https://www...",
+        "status": false,
+      },
     ];
   }
 }

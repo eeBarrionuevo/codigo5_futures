@@ -104,7 +104,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "34",
+                                                    data["social"]["articles"]
+                                                        .toString(),
                                                     style: TextStyle(
                                                       fontSize: 16.0,
                                                       color: Colors.white,
@@ -124,7 +125,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "234",
+                                                    data["social"]["following"]
+                                                        .toString(),
                                                     style: TextStyle(
                                                       fontSize: 16.0,
                                                       color: Colors.white,
@@ -144,7 +146,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    "5.3",
+                                                    data["social"]["rating"]
+                                                        .toString(),
                                                     style: TextStyle(
                                                       fontSize: 16.0,
                                                       color: Colors.white,
@@ -238,7 +241,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           height: 16.0,
                         ),
                         Text(
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500",
+                          data["information"],
                           style: TextStyle(
                             color: Colors.white60,
                             fontSize: 14.0,
