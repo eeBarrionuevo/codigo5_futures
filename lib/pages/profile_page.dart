@@ -9,6 +9,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   ServiceData serviceData = ServiceData();
   Map<String, dynamic> data = {};
+  List<Map<String, dynamic>> tasks = [];
 
   @override
   void initState() {
@@ -18,6 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> getData() async {
     data = await serviceData.getProfile();
+    tasks = await serviceData.getTasks();
     setState(() {});
   }
 
@@ -261,41 +263,47 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(
                 height: 12.0,
               ),
-              ...List.generate(
-                3,
-                (index) => Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: ListTile(
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        "https://images.pexels.com/photos/17997582/pexels-photo-17997582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                        width: 60,
-                        fit: BoxFit.cover,
+              Expanded(
+                child: ListView.builder(
+                  itemCount: tasks.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            tasks[index]["image"],
+                            width: 60,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        title: Text(
+                          tasks[index]["title"],
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        subtitle: Text(
+                          tasks[index]["description"],
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: Colors.white38,
+                            fontSize: 13.0,
+                          ),
+                        ),
+                        trailing: Icon(
+                          Icons.check_circle_rounded,
+                          color: tasks[index]["status"]
+                              ? Color(0xff06d6a0)
+                              : Colors.white10,
+                        ),
                       ),
-                    ),
-                    title: Text(
-                      "Ir de compras asdasd asdsad sdsad asdsadasd ",
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    subtitle: Text(
-                      "Debes de llevar el voucher de la vez pasada",
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Colors.white38,
-                        fontSize: 13.0,
-                      ),
-                    ),
-                    trailing: Icon(
-                      Icons.check_circle_rounded,
-                      color: Color(0xff06d6a0),
-                    ),
-                  ),
+                    );
+                  },
                 ),
               ),
             ],
